@@ -87,29 +87,34 @@ end
 def mumble_letters(letters)
     return "" if letters == ""
 
+    string_length = letters.length
+    letter_list = letters.chars
     first_letter = letters[0].upcase
-    if letters.length == 1 then
+    
+    if string_length == 1 then
       return first_letter
     end
 
-    second_part = letters[1].upcase + letters[1].downcase
-    if letters.length == 2 then
+    second_part = letter_list[1].upcase + letter_list[1].downcase
+    if string_length == 2 then
         return first_letter + "-" + second_part
     end
     
-    third_part = letters[2].upcase + letters[2].downcase * 2
-    if letters.length == 3 then
+    third_part = letter_list[2].upcase + letter_list[2].downcase * 2
+    if string_length == 3 then
         return first_letter + "-" + second_part + "-" + third_part
     end
 
-    fourth_part = letters[3].upcase + letters[3].downcase * 3
-    if letters.length == 4 then
+    fourth_part = letter_list[3].upcase + letter_list[3].downcase * 3
+    if string_length == 4 then
         return first_letter + "-" + second_part + "-" + third_part + "-" + fourth_part
     end
 
-    fifth_part = letters[4].upcase + letters[4].downcase * 4
-    if letters.length == 5 then
+    fifth_part = letter_list[4].upcase + letter_list[4].downcase * 4
+    if string_length == 5 then
         return first_letter + "-" + second_part + "-" + third_part + "-" + fourth_part + "-" + fifth_part
     end
 end
+
+
 
