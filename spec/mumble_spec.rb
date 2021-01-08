@@ -96,41 +96,32 @@ def mumble_letters(letters)
         "-" + letters[number-1].upcase + letters[number-1].downcase * (number - 1)
     end
 
-
     return "" if letters == ""
 
     string_length = letters.length
-    letter_list = letters.chars
-    first_letter = letters[0].upcase
-    
-    if string_length == 1 then
-      return first_letter
-    end
+    mumbled_string = letters[0].upcase
 
-    second_part = make_part(2, letters)
-    if string_length == 2 then
-        return first_letter + second_part
+    if string_length >= 2 then
+        mumbled_string += make_part(2, letters)
     end
     
-    third_part = make_part(3, letters)
-    if string_length == 3 then
-        return first_letter + second_part + third_part
+    if string_length >= 3 then
+        mumbled_string += make_part(3, letters)
+    end
+   
+    if string_length >= 4 then
+        mumbled_string += make_part(4, letters)
+    end
+   
+    if string_length >= 5 then
+        mumbled_string += make_part(5, letters)
     end
 
-    fourth_part = make_part(4, letters)
-    if string_length == 4 then
-        return first_letter + second_part + third_part + fourth_part
+    if string_length >= 6 then
+        mumbled_string += make_part(6, letters)
     end
 
-    fifth_part = make_part(5, letters)
-    if string_length == 5 then
-        return first_letter + second_part + third_part + fourth_part + fifth_part
-    end
-
-    sixth_part = make_part(6, letters)
-    if string_length == 6 then
-        return first_letter + second_part + third_part + fourth_part + fifth_part + sixth_part
-    end
+    return mumbled_string
 end
 
 
