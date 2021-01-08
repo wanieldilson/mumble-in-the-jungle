@@ -82,6 +82,12 @@ describe "Mumbling" do
 
         expect(result).to eq("B-Bb-Bbb-Bbbb-Bbbbb")
     end
+
+    it "gives A-Bb-Ccc-Dddd-Eeeee-Ffffff when abcdef" do
+        result = mumble_letters("abcdef")
+
+        expect(result).to eq("A-Bb-Ccc-Dddd-Eeeee-Ffffff")
+    end
 end
 
 def mumble_letters(letters)
@@ -95,26 +101,30 @@ def mumble_letters(letters)
       return first_letter
     end
 
-    second_part = letter_list[1].upcase + letter_list[1].downcase
+    second_part = "-" + letter_list[1].upcase + letter_list[1].downcase
     if string_length == 2 then
-        return first_letter + "-" + second_part
+        return first_letter + second_part
     end
     
-    third_part = letter_list[2].upcase + letter_list[2].downcase * 2
+    third_part = "-" + letter_list[2].upcase + letter_list[2].downcase * 2
     if string_length == 3 then
-        return first_letter + "-" + second_part + "-" + third_part
+        return first_letter + second_part + third_part
     end
 
-    fourth_part = letter_list[3].upcase + letter_list[3].downcase * 3
+    fourth_part = "-" + letter_list[3].upcase + letter_list[3].downcase * 3
     if string_length == 4 then
-        return first_letter + "-" + second_part + "-" + third_part + "-" + fourth_part
+        return first_letter + second_part + third_part + fourth_part
     end
 
-    fifth_part = letter_list[4].upcase + letter_list[4].downcase * 4
+    fifth_part = "-" + letter_list[4].upcase + letter_list[4].downcase * 4
     if string_length == 5 then
-        return first_letter + "-" + second_part + "-" + third_part + "-" + fourth_part + "-" + fifth_part
+        return first_letter + second_part + third_part + fourth_part + fifth_part
+    end
+
+    sixth_part = "-" + letter_list[5].upcase + letter_list[5].downcase * 5
+    if string_length == 6 then
+        return first_letter + second_part + third_part + fourth_part + fifth_part + sixth_part
     end
 end
-
 
 
