@@ -91,6 +91,12 @@ describe "Mumbling" do
 end
 
 def mumble_letters(letters)
+
+    def make_part(number, letters)
+        "-" + letters[number-1].upcase + letters[number-1].downcase * (number - 1)
+    end
+
+
     return "" if letters == ""
 
     string_length = letters.length
@@ -101,30 +107,33 @@ def mumble_letters(letters)
       return first_letter
     end
 
-    second_part = "-" + letter_list[1].upcase + letter_list[1].downcase
+    second_part = make_part(2, letters)
     if string_length == 2 then
         return first_letter + second_part
     end
     
-    third_part = "-" + letter_list[2].upcase + letter_list[2].downcase * 2
+    third_part = make_part(3, letters)
     if string_length == 3 then
         return first_letter + second_part + third_part
     end
 
-    fourth_part = "-" + letter_list[3].upcase + letter_list[3].downcase * 3
+    fourth_part = make_part(4, letters)
     if string_length == 4 then
         return first_letter + second_part + third_part + fourth_part
     end
 
-    fifth_part = "-" + letter_list[4].upcase + letter_list[4].downcase * 4
+    fifth_part = make_part(5, letters)
     if string_length == 5 then
         return first_letter + second_part + third_part + fourth_part + fifth_part
     end
 
-    sixth_part = "-" + letter_list[5].upcase + letter_list[5].downcase * 5
+    sixth_part = make_part(6, letters)
     if string_length == 6 then
         return first_letter + second_part + third_part + fourth_part + fifth_part + sixth_part
     end
 end
+
+
+
 
 
