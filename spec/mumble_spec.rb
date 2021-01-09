@@ -88,6 +88,12 @@ describe "Mumbling" do
 
         expect(result).to eq("A-Bb-Ccc-Dddd-Eeeee-Ffffff")
     end
+
+    it "gives A-Bb-Ccc-Dddd-Eeeee-Ffffff-Ggggggg when abcdefg" do
+        result = mumble_letters("abcdefg")
+
+        expect(result).to eq("A-Bb-Ccc-Dddd-Eeeee-Ffffff-Ggggggg")
+    end
 end
 
 def mumble_letters(letters)
@@ -100,27 +106,13 @@ def mumble_letters(letters)
 
     string_length = letters.length
     mumbled_string = letters[0].upcase
-
-    if string_length >= 2 then
-        mumbled_string += make_part(2, letters)
-    end
     
-    if string_length >= 3 then
-        mumbled_string += make_part(3, letters)
+    if string_length >= 2 then
+        for num in (2..string_length)
+            mumbled_string += make_part(num, letters)
+        end
     end
    
-    if string_length >= 4 then
-        mumbled_string += make_part(4, letters)
-    end
-   
-    if string_length >= 5 then
-        mumbled_string += make_part(5, letters)
-    end
-
-    if string_length >= 6 then
-        mumbled_string += make_part(6, letters)
-    end
-
     return mumbled_string
 end
 
