@@ -102,11 +102,10 @@ def mumble_letters(letters)
         "-" + letters[number-1].upcase + letters[number-1].downcase * (number - 1)
     end
 
-    return "" if letters == ""
-
     string_length = letters.length
-    mumbled_string = letters[0].upcase
+    return "" if string_length == 0
     
+    mumbled_string = letters[0].upcase
     if string_length >= 2 then
         for num in (2..string_length)
             mumbled_string += make_part(num, letters)
